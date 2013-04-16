@@ -177,3 +177,16 @@ void WhileStmt::genCode(const Label& next) {
   body->genCode(topLabel);
   cout << "\tgoto " << topLabel << endl;
 }
+
+void ForStmt::genCode(const Label& next) {
+		//cout<<"in gencode of while expre\n";
+	Label topLabel,templabel, bodyLabel;
+  cout << topLabel << ":" << endl;
+  first_arg->genCode(templabel);
+  cond->genJmpCode(bodyLabel,next);
+  cout << bodyLabel << ":" << endl;
+  body->genCode(topLabel);
+  in_body->genCode(templabel);
+  cout << "\tgoto " << topLabel << endl;
+
+}

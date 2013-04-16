@@ -44,13 +44,14 @@
      WHILE = 262,
      INT = 263,
      CHAR = 264,
-     OR = 265,
-     AND = 266,
-     NE = 267,
-     EQ = 268,
-     GE = 269,
-     LE = 270,
-     UMINUS = 271
+     FOR = 265,
+     OR = 266,
+     AND = 267,
+     NE = 268,
+     EQ = 269,
+     GE = 270,
+     LE = 271,
+     UMINUS = 272
    };
 #endif
 
@@ -73,7 +74,7 @@ typedef union YYSTYPE
 
 
 /* Line 2068 of yacc.c  */
-#line 77 "gen.tab.hpp"
+#line 78 "gen.tab.hpp"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

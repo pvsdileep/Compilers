@@ -20,12 +20,12 @@ extern int yylex();  // built via flex gen.l
 }
 %token <s> ID
 %token <f> FLOAT_LIT
-%type <stmt> assign_stmt call_stmt block_stmt if_stmt while_stmt decl_stmt 
+%type <stmt> assign_stmt call_stmt block_stmt if_stmt while_stmt decl_stmt for_stmt
 %type <expr> expr
 %type <exprs> actuals actual_list array_index
 %type <stmt> stmt
 %type <stmts> stmts
-%token IF ELSE WHILE INT CHAR 
+%token IF ELSE WHILE INT CHAR FOR
 %left OR
 %left AND
 %right '!'
@@ -48,6 +48,7 @@ stmt         : assign_stmt
              | if_stmt
              | while_stmt
              | decl_stmt
+             | for_stmt
              ;
 
 
@@ -87,6 +88,9 @@ if_stmt      : IF '(' expr ')' stmt    {$$ = new IfStmt($3,$5);}
              | IF '(' expr ')' stmt ELSE stmt
                                        {$$ = new IfElseStmt($3,$5,$7);}
              ;
+
+for_stmt	 : FOR '(' stmt expr ';' stmt ')' stmt {$$ = new ForStmt($3,$4,$6,$8);}
+			 ;
 
 while_stmt   : WHILE '(' expr ')' stmt {$$ = new WhileStmt($3,$5);}
              ;

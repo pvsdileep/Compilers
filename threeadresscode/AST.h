@@ -182,3 +182,16 @@ public:
   virtual void genCode(const Label& next);
 };  
 
+
+//for_stmt	 : FOR '(' assign_stmt ',' expr ',' assign_stmt ')' stmt {$$ = new ForStmt($3,$5,$7,$9);}
+
+class ForStmt : public Stmt {
+  Expr *cond;
+  Stmt *body,*in_body,*first_arg;
+
+public:
+  ForStmt(Stmt *first,Expr *c, Stmt *in,Stmt *s) : cond(c),first_arg(first), in_body(in),body(s) {}
+  virtual ~ForStmt() {delete cond; delete body;}
+  virtual void genCode(const Label& next);
+};  
+
