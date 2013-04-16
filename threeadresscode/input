@@ -1,9 +1,9 @@
- a = 3 ;
-dileep(3,4+5);
+int a = 0;
+while(a < 1)
 {
-a = a -1 ;
-b = a + 2 ;
+	incr(a,1);
 }
-if(1) a = a + 3;
-else a = a- 4;
-while( 3 > 4) a = a - 1;
+
+ int b = 3;
+  b = ( -b * 3 + a / c )  ;
+ b = a+1;

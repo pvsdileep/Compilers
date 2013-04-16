@@ -8,6 +8,8 @@
 if                           {return IF;}
 else                         {return ELSE;}
 while                        {return WHILE;}
+int							 {return INT;}
+char						 {return CHAR;}
 [a-zA-Z_][a-zA-Z_0-9]*       {yylval.s = new std::string(yytext); return ID;}
 "||"                         {return OR;}
 "&&"                         {return AND;}
